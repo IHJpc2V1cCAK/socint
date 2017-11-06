@@ -1,0 +1,10 @@
+[DEFAULT]
+
+db_host = localhost
+db_name = socint
+db_user = <user>
+db_user = <password>
+
+reddit_client_id = <client_id>
+reddit_client_secret = <client_secret>
+reddit_user_agent = <user_agent>

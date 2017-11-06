@@ -1,6 +1,0 @@
-[DEFAULT]
-
-db_host = localhost
-db_name = socint
-db_user = <user>
-db_user = <password>
