@@ -161,7 +161,8 @@ def collect_stream(subreddit_name, subreddit, ids):
                     lds = ids[skipped:]
                     skipped = 0
                 else:
-                    ids.pop(0)
+                    if len(ids) > 0:
+                        ids.pop(0)
                     ids.append(comment.id)
 
                 comment_dict = {
