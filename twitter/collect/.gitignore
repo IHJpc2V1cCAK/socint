@@ -1,0 +1,6 @@
+env
+config.conf
+*swp
+*pyc
+*csv
+output

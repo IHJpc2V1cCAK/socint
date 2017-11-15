@@ -1,0 +1,9 @@
+[DEFAULT]
+
+db_host = localhost
+db_name = socint
+db_user = <user>
+db_user = <password>
+
+twitter_key = <client_key>
+twitter_secret = <client_secret>
