@@ -235,11 +235,10 @@ if __name__ == '__main__':
             sys.exit(1)
 
         users = dict()
-        logger.info('querying user schedule')
+        logger.info('aggregate user schedule')
         users = {args.user: _user_weekly(args.user)}
-        logger.info('generate schedule graph')
+        logger.info('graphing schedule')
         _generate_users_weekly_graph(users, args.user)
-
         # TODO: linear usage graph
 
         logger.info('obtaining user history')
