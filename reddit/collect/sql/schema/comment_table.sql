@@ -1,5 +1,8 @@
+-- Create a table to hold subreddit comments
+-- Also make an entry in our reddit_subreddits metatable
 CREATE TABLE subreddit (
     id character varying(15) NOT NULL,
+    subreddit character varying(50),
     parent_id character varying(15),
     link_id character varying(15),
     author character varying(20),
@@ -10,3 +13,4 @@ CREATE TABLE subreddit (
     edited boolean,
     body character varying(50000)
 );
+INSERT INTO reddit_subreddits (subreddit) VALUES ('subreddit');
