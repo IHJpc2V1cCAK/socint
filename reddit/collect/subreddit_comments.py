@@ -10,6 +10,7 @@ import argparse
 import configparser
 from datetime import datetime, timedelta
 import logging
+import os
 import sys
 import time
 
@@ -18,6 +19,9 @@ import psycopg2
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger('main')
+
+working_dir = os.path.realpath(__file__)
+working_dir = os.path.dirname(working_dir)
 
 epoch = datetime.utcfromtimestamp(0)
 
@@ -76,7 +80,7 @@ def parse_args():
 
 def parse_config():
     config = configparser.ConfigParser()
-    config.read_file(open('./config.conf'))
+    config.read_file(open(os.path.join(working_dir, '../config.conf')))
     return config
 
 def get_epoch(dt):

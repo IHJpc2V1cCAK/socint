@@ -11,6 +11,7 @@ import argparse
 import configparser
 import datetime
 import logging
+import os
 import sys
 import time
 
@@ -19,6 +20,9 @@ import psycopg2
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logger = logging.getLogger('main')
+
+working_dir = os.path.realpath(__file__)
+working_dir = os.path.dirname(working_dir)
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -36,7 +40,7 @@ def parse_args():
 
 def parse_config():
     config = configparser.ConfigParser()
-    config.read_file(open('./config.conf'))
+    config.read_file(open(os.path.join(working_dir, '../config.conf')))
     return config
 
 def _connect_to_db(dh_host, db_name, db_user, db_user_pass):
