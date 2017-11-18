@@ -1,0 +1,4 @@
+env
+output/*
+*bak
+*swp
