@@ -80,8 +80,6 @@ def _user_weekly(user):
     cursor = conn.cursor()
     cursor.execute(sql)
     rows = cursor.fetchall()
-    for row in rows:
-        print(row)
 
     cursor = conn.cursor()
     cursor.execute('SELECT subreddit FROM reddit_subreddits;')
@@ -109,8 +107,6 @@ def _user_weekly(user):
 
         rows = final_rows
 
-    for row in rows:
-        print(row)
     return rows
 
 def _generate_users_weekly_graph(users,append_report_name):
