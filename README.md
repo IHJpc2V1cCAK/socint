@@ -27,7 +27,7 @@ INFO:main:obtaining user history
  technology             26 ( 2.7%)
  [...snip...]
 ```
-![spez posting schedule](https://github.com/IHJpc2V1cCAK/socint/tree/master/doc/reddit_user_schedule_spez.png)
+![spez posting schedule](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_user_schedule_spez.png)
 
 
 ## Get Started
