@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+
+USER=$1
+
+. ./collect/env/bin/activate && \
+./collect/redditor_history.py -u $USER && \
+deactivate
+
+. ./report/env/bin/activate && \
+./report/user_schedule.py -u $USER && \
+deactivate
+
+
