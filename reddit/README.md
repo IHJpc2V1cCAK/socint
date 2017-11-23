@@ -17,6 +17,7 @@ To get started:
     ...
     ...
 ```
+![spez posting schedule](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_user_schedule_spez.png)
 
 
 ## Collect
