@@ -115,16 +115,22 @@ def _get_subreddit_postcount(subreddit, terms):
     """Query and return a dataframe for a subreddit and terms list."""
 
     # Build the where clause
-    and_clause = str()
+    and_clauses = list()
     i = 0
     params = dict()
-    for term in terms:
-        and_clause += "\t\t\tAND lower(body) like %(term_{i})s".format(
-                i = str(i))
-        params['term_{i}'.format(i = str(0))] = term
-        i += 1
 
-    # TODO: Is there a bug here, if I use multiple terms I'm ANDing instead of OR
+    # TODO: Add a negation clause. Terms can be prepended with a minus to
+    #   eliminate counting comments containing those terms.
+    # TODO: Add a sql parameter to override our query generation with a custom
+    #   query if you need more refined filtering that combines terms using
+    #   AND with OR.
+
+    for term in terms:
+        and_clauses.append("lower(body) like %(term_{i})s".format(i = str(i)))
+        params['term_{i}'.format(i = str(i))] = term
+        i += 1
+    and_clause = ' OR '.join(and_clauses)
+
     if args.groupby == 'week':
         sql = '''
                 SELECT
@@ -134,7 +140,7 @@ def _get_subreddit_postcount(subreddit, terms):
                 FROM superdatetime
                     LEFT JOIN {subreddit} s ON to_char(EXTRACT(YEAR from s.created_utc), 'FM0000')||to_char(EXTRACT(WEEK from s.created_utc), 'FM00') =
                             to_char(EXTRACT(YEAR from superdatetime.base), 'FM0000')||to_char(EXTRACT(WEEK from superdatetime.base), 'FM00')
-                        {and_clause}
+                        AND ({and_clause})
                 WHERE superdatetime.base between %(start_date)s and %(end_date)s
                 GROUP BY to_char(EXTRACT(YEAR from superdatetime.base), 'FM0000')||to_char(EXTRACT(WEEK from superdatetime.base), 'FM00');
         '''.format(subreddit = subreddit, and_clause = and_clause)
@@ -166,6 +172,7 @@ def _get_subreddit_postcount(subreddit, terms):
         '''.format(subreddit = subreddit, and_clause = and_clause)
 
     logger.debug(sql)
+    logger.debug(params)
     start_date, end_date = args.period
     params['start_date'] = start_date.isoformat()
     params['end_date'] = end_date.isoformat()
