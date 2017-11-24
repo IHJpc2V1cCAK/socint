@@ -2,7 +2,7 @@
 
 Reddit specific scripts & utilities.
 
-All scripts revolve around collection & storage of comments. Other Reddit objects might be added in the future. You'll need at least one table to which comments are logged. The table structure these scripts expect is documented in `./sql/schema/comment_table.sql` and by default scripts log comments of a subreddit into a table by the same name.
+Collect, store and analyze data from Reddit. Create scripts for table that hold data (i.e. comments and submission details) can be found in `./sql/schema/`. By default comment collection scripts insert comments into a table by the same name. For example, you're interested in collecting /r/politics, edit the creation script in comment_table.sql to create a table named politics.
 
 To get started:
 ```
@@ -78,7 +78,7 @@ INFO:main:obtaining user history
 
 ## bar_graph_stacked_subreddits.py
 
-Generate a bar chart grouping counts by week, day or hour for one or more subreddit where the comment counts for each subreddit stack on top of one another in the resulting graph. This is useful for identifying the size of a topic across subreddits or identifying subreddits with more or less interest. In addition to the example chart below, see the same data grouped by [day](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_stacked_subreddits_grouped_days_cia.png) or [hour](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_stacked_subreddits_grouped_hours_cia.png).
+Generate a bar chart grouping counts by week, day or hour for one or more subreddit where the comment counts for each subreddit stack on top of one another in the resulting graph. This is useful for identifying the size of a topic across subreddits or identifying subreddits with more or less interest. In addition to the example chart below, see the drill-down subsets grouped by [day](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_stacked_subreddits_grouped_days_cia.png) or [hour](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_stacked_subreddits_grouped_hours_cia.png).
 
 ```
 (env)~/socint/reddit/report/bar_graph_stacked_subreddits.py \
