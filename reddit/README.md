@@ -17,8 +17,6 @@ To get started:
     ...
     ...
 ```
-![spez posting schedule](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_user_schedule_spez.png)
-
 
 ## Collect
 
@@ -75,6 +73,8 @@ INFO:main:obtaining user history
  technology             26 ( 2.7%)
  [...snip...]
 ```
+![spez posting schedule](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_user_schedule_spez.png)
+
 
 ## bar_graph_stacked_subreddits.py
 
