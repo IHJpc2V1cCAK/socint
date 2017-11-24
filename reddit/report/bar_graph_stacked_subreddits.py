@@ -206,8 +206,10 @@ def _gen_graph(df):
     source = ColumnDataSource(data=data)
 
     title = 'Stacked count of comments mentioning ' + \
-            '"net neutrality" grouped by {group}'.format(args.groupby)
-    p = figure(x_range=periods, plot_height=350, title=title
+            '"{terms}" grouped by {group}'.format(
+                    group=args.groupby,
+                    terms = ' '.join(args.terms))
+    p = figure(x_range=periods, plot_height=350, title=title,
                toolbar_location=None, tools="", width=800)
     p.xaxis.major_label_orientation = math.pi/4
 
