@@ -75,3 +75,17 @@ INFO:main:obtaining user history
  technology             26 ( 2.7%)
  [...snip...]
 ```
+
+## bar_graph_stacked_subreddits.py
+
+Generate a bar chart grouping counts by week, day or hour for one or more subreddit where the comment counts for each subreddit stack on top of one another in the resulting graph. This is useful for identifying the size of a topic across subreddits or identifying subreddits with more or less interest. In addition to the example chart below, see the same data grouped by [day](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_stacked_subreddits_grouped_days_cia.png) or [hour](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_stacked_subreddits_grouped_hours_cia.png).
+
+```
+(env)~/socint/reddit/report/bar_graph_stacked_subreddits.py \
+        --groupby week
+        -r politics the_donald conspiracy
+        --terms "% cia %"
+        --period 20170101000000 20171130235959
+```
+![cia_grouped_by_weeks](https://raw.githubusercontent.com/IHJpc2V1cCAK/socint/master/doc/reddit_stacked_subreddits_grouped_weeks_cia.png)
+
