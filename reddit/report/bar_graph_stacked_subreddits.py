@@ -62,6 +62,9 @@ def parse_args():
     parser.add_argument('-g', '--groupby', '--group', action='store',
             choices=['hour', 'day', 'week'],
             required=True, help='group comment counts into hours, days, or weeks')
+    parser.add_argument('-o', '--output', action='store',
+            required=False, help='output file',
+            default='./output/grouped_bar_graph_temp_name.html')
     parser.add_argument('-p', '--period', nargs=2, action='store',
             required=False, help='start and end date range formatted yyyymmddhhmmss')
     parser.add_argument('-r', '--subreddits', action='store', required=True,
@@ -204,7 +207,7 @@ def _gen_graph(df):
             periods.append(str(p))
 
     logger.info('generating graph')
-    output_file(os.path.join(working_dir, './output/grouped_bar_graph_temp_name.html'))
+    output_file(os.path.join(working_dir, args.output))
 
     df = df.pivot(index='subreddit', columns='period', values='count')
     data = {'periods' : periods}
