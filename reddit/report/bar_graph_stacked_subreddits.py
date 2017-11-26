@@ -153,7 +153,7 @@ def _get_subreddit_postcount(subreddit, terms):
                 FROM superdatetime
                     LEFT JOIN {subreddit} s ON to_char(EXTRACT(YEAR from s.created_utc), 'FM0000')||to_char(EXTRACT(MONTH from s.created_utc), 'FM00')||to_char(EXTRACT(DAY from s.created_utc), 'FM00') =
                             to_char(EXTRACT(YEAR from superdatetime.base), 'FM0000')||to_char(EXTRACT(MONTH from superdatetime.base), 'FM00')||to_char(EXTRACT(DAY from superdatetime.base), 'FM00')
-                        {and_clause}
+                        AND ({and_clause})
                 WHERE superdatetime.base between %(start_date)s and %(end_date)s
                 GROUP BY to_char(EXTRACT(YEAR from superdatetime.base), 'FM0000')||to_char(EXTRACT(MONTH from superdatetime.base), 'FM00')||to_char(EXTRACT(DAY from superdatetime.base), 'FM00');
         '''.format(subreddit = subreddit, and_clause = and_clause)
@@ -166,7 +166,7 @@ def _get_subreddit_postcount(subreddit, terms):
                 FROM superdatetime
                     LEFT JOIN {subreddit} s ON to_char(EXTRACT(YEAR from s.created_utc), 'FM0000')||to_char(EXTRACT(MONTH from s.created_utc), 'FM00')||to_char(EXTRACT(DAY from s.created_utc), 'FM00')||to_char(EXTRACT(HOUR from s.created_utc), 'FM00') =
                             to_char(EXTRACT(YEAR from superdatetime.base), 'FM0000')||to_char(EXTRACT(MONTH from superdatetime.base), 'FM00')||to_char(EXTRACT(DAY from superdatetime.base), 'FM00')||to_char(EXTRACT(HOUR from superdatetime.base), 'FM00')
-                        {and_clause}
+                        AND ({and_clause})
                 WHERE superdatetime.base between %(start_date)s and %(end_date)s
                 GROUP BY to_char(EXTRACT(YEAR from superdatetime.base), 'FM0000')||to_char(EXTRACT(MONTH from superdatetime.base), 'FM00')||to_char(EXTRACT(DAY from superdatetime.base), 'FM00')||to_char(EXTRACT(HOUR from superdatetime.base), 'FM00');
         '''.format(subreddit = subreddit, and_clause = and_clause)
