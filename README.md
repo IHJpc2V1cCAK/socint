@@ -10,7 +10,7 @@ analysis. Report on interesting trends, user patterns, etc..
 Lets see what a user's been doing lately:
 
 ```
-(env)~/reddit$ ./user_stats
+(env)~/reddit$ ./user_stats spez
 INFO:main:obtaining user history: spez
 INFO:main:querying user schedule
 INFO:main:querying user_comments
