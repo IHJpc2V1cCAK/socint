@@ -40,5 +40,4 @@ INFO:main:obtaining user history
 
 ## Where are we going with this?
 
-There's a lot of messy code that should be cleaned up and uploaded as this
-collection progresses. Check back soon.
+The project is static. Reddit changed their search functionality so cloudsearch no longer works. This leaves ./reddit/collect/subreddit_comments.py broken. The rest of it works as far as I know so you can still stream and get a redditors history. TODO: explore pushshift.io which looks like a better source for historical data from Reddit.
