@@ -3,7 +3,7 @@
 db_host = localhost
 db_name = socint
 db_user = <user>
-db_user = <password>
+db_pass = <password>
 
 reddit_client_id = <client_id>
 reddit_client_secret = <client_secret>
